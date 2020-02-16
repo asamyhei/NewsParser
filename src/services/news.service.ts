@@ -28,32 +28,21 @@ export class NewsService {
     }
 
     public getNewsByCategory(req: Request, res: Response) {
+        News.find({origin: req.params.origin}, (error: Error, news: any) => {
+            if (error) {
+                res.send(error);
+            }
+            res.json(news);
+        });
+    }
+
+    getNewsByCategories(req: Request, res: Response) {
         const categories = req.body.categories;
         News.find({origin: {$in: categories}}, (error: Error, news: any) => {
             if (error) {
                 res.send(error);
             }
             res.json(news);
-        });
-    }
-
-    public addNews(req: Request, res: Response) {
-        const newNews = new News(req.body);
-        newNews.save((error: Error, news: any) => {
-            if (error) {
-                res.send(error);
-            }
-            res.json(news);
-        });
-    }
-
-    public deleteNews(req: Request, res: Response) {
-        const newsID = req.params.id;
-        News.findByIdAndDelete(newsID, (error: Error, deleted: any) => {
-            if (error) {
-                res.send(error);
-            }
-            res.status(200).send(deleted);
         });
     }
 }

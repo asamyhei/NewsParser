@@ -14,8 +14,8 @@ export class Controller {
 
     public routes() {
         this.app.route("/news").get(this.newsService.getAllNews);
+        this.app.route("/news/cate").get(this.newsService.getNewsByCategories);
         this.app.route("/news/:origin").get(this.newsService.getNewsByCategory);
-        this.app.route("/news").post(this.newsService.getNewsByCategories);
     }
 
     private scheduleAndInitDb() {
@@ -25,7 +25,7 @@ export class Controller {
         rule.second = 10;
 
         const j = schedule.scheduleJob(rule, () => {
-            console.log('Today is recognized by Rebecca Black!');
+            console.log('Init job');
             mongoose.connection.collection('news').deleteMany({}, async (err, collection) => {
                 RSS.forEach((value, key) => {
                     parseFeed(value, key);

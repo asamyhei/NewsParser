@@ -37,7 +37,7 @@ export class NewsService {
     }
 
     getNewsByCategories(req: Request, res: Response) {
-        const categories = req.body.categories;
+        const categories = [].concat(req.query.categories);
         News.find({origin: {$in: categories}}, (error: Error, news: any) => {
             if (error) {
                 res.send(error);

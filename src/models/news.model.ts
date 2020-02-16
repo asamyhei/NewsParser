@@ -3,8 +3,12 @@ import mongoose from 'mongoose';
 export const NewsSchema = new mongoose.Schema(
   {
     title: String,
-    description: String,
-    link: String
+    id: String,
+    content: String,
+    link: String,
+    pubDate: String,
+    origin: String,
+    categories: [String]
   },
   { versionKey: false }
 );
@@ -16,4 +20,4 @@ NewsSchema.set('toJSON', {
   }
 });
 
-export const News = mongoose.model('News', NewsSchema);
+export const News = mongoose.model('news', NewsSchema);

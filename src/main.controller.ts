@@ -14,8 +14,6 @@ export class Controller {
 
     public routes() {
         this.app.route("/news").get(this.newsService.getAllNews);
-        this.app.route("/news/cate").get(this.newsService.getNewsByCategories);
-        this.app.route("/news/:origin").get(this.newsService.getNewsByCategory);
     }
 
     private scheduleAndInitDb() {

@@ -8,5 +8,5 @@ export const RSS: Map<string, string> = new Map([
     ['LEMONDE', 'https://www.lemonde.fr/rss/une.xml'],
     ['LIBERATION', 'http://rss.liberation.fr/rss/latest/'],
     ['BFMMONDE', 'https://bfmbusiness.bfmtv.com/rss/monde/'],
-    ['BFMFRANCE', 'https://bfmbusiness.bfmtv.com/rss/france/'],
+    ['BFMFRANCE', 'https://bfmbusiness.bfmtv.com/rss/france/']
 ]);

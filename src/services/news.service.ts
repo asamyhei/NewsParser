@@ -10,12 +10,23 @@ export class NewsService {
     }
 
     public getAllNews(req: Request, res: Response) {
-        News.find({}, (error: Error, news: any) => {
-            if (error) {
-                res.send(error);
-            }
-            res.json(news);
-        });
+        if (req.query.categories) {
+            const categories = [].concat(req.query.categories);
+            News.find({origin: {$in: categories}}, (error: Error, news: any) => {
+                if (error) {
+                    res.send(error);
+                }
+                res.json(news);
+            });
+        } else {
+            News.find({}, (error: Error, news: any) => {
+                if (error) {
+                    res.send(error);
+                }
+                res.json(news);
+            });
+
+        }
     }
 
     public getNewsById(req: Request, res: Response) {

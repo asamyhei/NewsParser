@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 export const NewsSchema = new mongoose.Schema(
   {
     title: String,
-    id: String,
     content: String,
     link: String,
     pubDate: String,

@@ -1,4 +1,5 @@
-export const RSS: Map<string, string> = new Map([
+export let RSS: Map<string, string>;
+RSS = new Map([
     ['HOWTOGEEK', 'https://feeds.howtogeek.com/HowToGeek'],
     ['ENGADGET', 'http://www.engadget.com/rss.xml'],
     ['WIRED', 'http://feeds.wired.com/wired/index'],

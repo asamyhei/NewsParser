@@ -14,6 +14,7 @@ export class Controller {
 
     public routes() {
         this.app.route("/news").get(this.newsService.getAllNews);
+        this.app.route("/test").get(this.newsService.getTest);
     }
 
     private scheduleAndInitDb() {

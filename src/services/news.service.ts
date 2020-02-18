@@ -5,8 +5,8 @@ let Parser = require('rss-parser');
 let parser = new Parser();
 
 export class NewsService {
-    public welcomeMessage(req: Request, res: Response) {
-        res.status(200).send('WELCOME_MESSAGE');
+    public getTest(req: Request, res: Response) {
+        res.status(200).send('Joyeux anniversaire gros connard');
     }
 
     public getAllNews(req: Request, res: Response) {
